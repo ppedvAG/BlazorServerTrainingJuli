@@ -11,7 +11,7 @@
                 @for (int i = 0; i < 12; i++)
                 {
                     int x = i;
-                    <li class="list-group-item" @onclick="()=>auswahl(x)">
+                    <li class="list-group-item list-group-item-action" @onclick="()=>auswahl(x)">
                         @DateTime.Now.AddMonths(i).ToString("MMMM")
                     </li>
                 }
@@ -19,6 +19,9 @@
         </div>
     </div>
 </div>
+<p @onclick="test" >
+    <div @onclick="test" >sdfdsffdg</div>
+</p>
 
 @code {
     public string Monat { get; set; }
@@ -26,5 +29,9 @@
     {
         Monat = DateTime.Now.AddMonths(i).ToString("MMMM");
     }
+    void test()
+        {
+
+        }
 
 }
