@@ -1,0 +1,53 @@
+﻿@page "/rest"
+@inject IHttpClientFactory http
+@using System.Text.Json
+<h3>RestSample</h3>
+<button class="btn btn-outline-primary" @onclick="click">http call</button>
+@if (TodoListe == null)
+{
+    <p>Daten erst laden</p>
+}
+
+else
+{
+    <ul class="list-group list-group-flush">
+        <Virtualize Items="@TodoListe" Context="item" ItemSize="25">
+
+            <ItemContent>
+                <li class="list-group-item">
+                    <div class="row">
+                        <div class="col-2 ">@item.id</div>
+                        <div class="col-md-5 col-12">@item.title</div>
+                        <div class="col-2">@item.completed</div>
+                    </div>
+                
+                </li>
+                
+            </ItemContent>
+            <Placeholder>
+                <p>Daten erst laden</p>
+            </Placeholder>
+        </Virtualize>
+       
+
+    </ul>
+}
+
+
+@code {
+    public List<Todos> TodoListe { get; set; }
+
+    void click()
+    {
+
+        var client = http.CreateClient();
+        var response = client.GetAsync(@"https://jsonplaceholder.typicode.com/todos").Result;
+        if (response.IsSuccessStatusCode)
+        {
+            var data = response.Content.ReadAsStringAsync().Result;
+            TodoListe = JsonSerializer.Deserialize<List<Todos>>(data);
+        }
+
+    }
+
+}
