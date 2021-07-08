@@ -9,7 +9,7 @@ namespace BlazorServerTrainingJuli.Pages.Modul3
     {
         protected override void OnAfterRender(bool firstRender)
         {
-         
+          
         }
 
         protected override Task OnInitializedAsync()
