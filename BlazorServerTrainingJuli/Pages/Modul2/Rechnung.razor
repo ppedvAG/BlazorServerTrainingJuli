@@ -1,0 +1,12 @@
+﻿@page "/rechnung"
+@page "/rechnung/{id}"
+@page "/rechnung/{id2:int}"
+<h3>Rechnung @id @id2</h3>
+
+@code {
+    [Parameter]
+    public string id { get; set; }
+    [Parameter]
+    public int id2 { get; set; }
+
+}
