@@ -17,4 +17,22 @@
 
         ls.SetAsync("hannes", Pwd);
     }
+    protected override async Task OnInitializedAsync()
+    {
+
+    }
+  
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            var x = await ls.GetAsync<string>("hannes");
+            if (x.Success)
+            {
+                Pwd = x.Value;
+                StateHasChanged();
+            }
+        }
+        
+    }
 }
