@@ -1,0 +1,10 @@
+﻿@page "/mb" 
+<h3 style="background-color:@MyProperty">MiniBind</h3>
+<input @bind="MyProperty" />
+
+@MyProperty
+
+
+@code {
+    public string MyProperty { get; set; }
+}
