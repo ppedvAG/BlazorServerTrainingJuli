@@ -1,0 +1,11 @@
+﻿@page "/cb"
+<h3>Checkbox</h3>
+<div class="custom-control custom-checkbox">
+    <input type="checkbox" class="custom-control-input"  @bind="MyProperty"  id="customCheck1">
+    <label class="custom-control-label" 
+           style='@(MyProperty?"text-decoration:line-through":"")' 
+           for="customCheck1">Text dazu</label>
+</div>
+@code {
+    public bool MyProperty { get; set; }
+}
