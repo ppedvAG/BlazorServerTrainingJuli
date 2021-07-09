@@ -1,0 +1,13 @@
+﻿@page "/js" 
+@inject IJSRuntime JSruntime
+<h3>JSBlazor</h3>
+<button @onclick="tuwas">jsen</button>
+@code {
+    void tuwas()
+    {
+
+        JSruntime.InvokeVoidAsync("localStorage.setItem", "YourPet", "Hase");
+        JSruntime.InvokeVoidAsync("eval", "document.title = 'Tolle Page'");
+    }
+
+}
