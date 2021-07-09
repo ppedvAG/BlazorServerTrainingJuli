@@ -2,7 +2,9 @@
 @using Modul5 
 <h3>UseParComponent</h3>
 <CascadingValue Value="@("Hannes")">
-    <ParComponent Titel="Parameter tooll" @ref="hannes" style="background-color:aqua" height="300px" alt="hannes"
+    <ParComponent Titel="Parameter tooll"
+                  OnSave="MySave"
+                  @ref="hannes" style="background-color:aqua" height="300px" alt="hannes"
                   _Person="p">
         <p>wildes HTML</p>
 
@@ -18,6 +20,10 @@
         hannes.TitelOhnePara = "test";
         hannes.Refresh();
     }
+    void MySave()
+        {
 
-   
+        }
+
+
 }
