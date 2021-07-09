@@ -1,0 +1,34 @@
+﻿@using Modul5 
+
+<div @attributes="attribute">
+    <h3>ParComponent</h3>
+    <hr />
+    @Titel
+    <br />
+    @TitelOhnePara
+    <hr />
+    @casci
+    @ChildContent
+</div>
+@code {
+    [Parameter]
+    public string Titel { get; set; }
+    public string TitelOhnePara { get; set; }
+    [Parameter]
+    public Person _Person { get; set; }
+
+    [Parameter(CaptureUnmatchedValues =true)]
+    public Dictionary<string,object> attribute { get; set; }
+    [CascadingParameter]
+    public string casci { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+
+    public  void Refresh()
+    {
+        StateHasChanged();
+    }
+
+}

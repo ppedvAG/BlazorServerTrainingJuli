@@ -1,0 +1,23 @@
+﻿@page "/upc" 
+@using Modul5 
+<h3>UseParComponent</h3>
+<CascadingValue Value="@("Hannes")">
+    <ParComponent Titel="Parameter tooll" @ref="hannes" style="background-color:aqua" height="300px" alt="hannes"
+                  _Person="p">
+        <p>wildes HTML</p>
+
+    </ParComponent>
+</CascadingValue>
+
+@code {
+    ParComponent hannes;
+    Person p = new Person();
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        hannes.TitelOhnePara = "test";
+        hannes.Refresh();
+    }
+
+   
+}
