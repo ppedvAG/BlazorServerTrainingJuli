@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -32,6 +33,8 @@ namespace BlazorServerTrainingJuli
             services.AddSingleton<WeatherForecastService>();
             services.AddSingleton<ChatVM>();
             services.AddHttpClient();
+            services.AddDbContext<Models.northwindContext>(
+                o=>o.UseSqlServer(Configuration.GetConnectionString("Northwind")));
 
         }
 

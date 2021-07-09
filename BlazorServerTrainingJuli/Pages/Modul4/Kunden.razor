@@ -1,0 +1,24 @@
+﻿@page "/kunden"
+@using Models
+@inject northwindContext ef
+<h3>Kunden</h3>
+@foreach (var item in ef.Customers)
+{
+    <a href="/details/@item.CustomerId">
+        @item.CompanyName <br />
+    </a>
+}
+
+
+@code {
+
+
+    protected override void OnInitialized()
+    {
+        //var ef = new Models.northwindContext();
+        //var kunden = ef.Customers.Where(x=>x.Country.Equals("Germany"));
+        //LINQ
+
+    }
+
+}
