@@ -1,0 +1,20 @@
+﻿@page "/um"
+<h3>UseModal</h3>
+<PpedvModal @ref="pp" Titel="Hallo Welt!" OnSave="save">
+    <p>bitte was eingeben</p>
+    <input @bind="eingabe"/>
+</PpedvModal>
+<button @onclick="open">open modal</button>
+@code {
+    string eingabe;
+    PpedvModal pp;
+    void open()
+    {
+        pp.Show();
+
+    }
+    void save()
+        {
+
+        }
+}

@@ -1,0 +1,26 @@
+﻿@page "/ur" 
+@using Models
+@inject Models.northwindContext ef
+<h3>UseRepeater</h3>
+<table class="table">
+    <PPEDVRepeater ItemType="Customer" SelectMethod="GetCustomers" Context="Franz">
+        <EmptyDataTemplate>
+            bisher keine Daten
+        </EmptyDataTemplate>
+        <ItemTemplate>
+            <tr>
+                <td>@Franz.CompanyName</td>
+            </tr>
+        </ItemTemplate>
+
+    </PPEDVRepeater>
+</table>
+
+
+@code {
+    public IEnumerable<Customer> GetCustomers()
+        {
+        return ef.Customers;
+        }
+
+}
