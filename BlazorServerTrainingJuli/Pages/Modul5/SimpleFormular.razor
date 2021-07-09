@@ -1,0 +1,14 @@
+﻿@page "/f1"
+<h3>SimpleFormular</h3>
+<input @bind="MyProperty" />
+<input type="date" @bind="MyProperty" />
+
+<input type="datetime" @bind="MyProperty" />
+<input type="datetime-local" @bind="MyProperty" />
+
+@MyProperty
+
+@code {
+    public DateTime MyProperty { get; set; }
+
+}
