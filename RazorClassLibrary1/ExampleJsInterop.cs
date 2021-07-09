@@ -21,10 +21,10 @@ namespace RazorClassLibrary1
                "import", "./_content/RazorClassLibrary1/exampleJsInterop.js").AsTask());
         }
 
-        public async ValueTask<string> Prompt(string message)
+        public async ValueTask<string> PromptAsync(string message)
         {
             var module = await moduleTask.Value;
-            return await module.InvokeAsync<string>("showPrompt", message);
+            return await module.InvokeAsync<string>("showPromptHannesJs", message);
         }
 
         public async ValueTask DisposeAsync()

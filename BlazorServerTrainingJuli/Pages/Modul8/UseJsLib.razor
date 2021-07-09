@@ -1,0 +1,15 @@
+﻿@page "/ujl"
+@inject IJSRuntime jsruntime
+<h3>UseJsLib</h3>
+<button @onclick="click">click</button>
+@msg
+@code {
+    string msg;
+   async void click()
+    {
+        var x = new RazorClassLibrary1.ExampleJsInterop(jsruntime);
+        msg=await x.PromptAsync("Hallo Welt");
+        StateHasChanged();
+       
+    }
+}
