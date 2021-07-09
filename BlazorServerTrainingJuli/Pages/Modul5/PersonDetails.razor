@@ -1,6 +1,6 @@
 ﻿@page "/person"
 <h3>PersonDetails</h3>
-<EditForm Model="MyPerson" OnSubmit="save" >
+<EditForm  OnSubmit="save" EditContext="_editContext" >
     <DataAnnotationsValidator></DataAnnotationsValidator>
     <div class="form-group row">
         <label class="col-sm-2 col-form-label">Name</label>
@@ -31,10 +31,16 @@
 </EditForm>
 @code {
     public Person MyPerson { get; set; } = new Person();
-
+    EditContext _editContext;
     void save()
-        {
+    {
 
 
-        }
+    }
+
+    protected override void OnInitialized()
+    {
+        _editContext = new EditContext(MyPerson);
+        _editContext.SetFieldCssClassProvider(new BoostrapErrorFixCSSprovider());
+    }
 }
